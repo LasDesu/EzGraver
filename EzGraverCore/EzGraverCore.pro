@@ -9,18 +9,20 @@ TEMPLATE = lib
 DEFINES += EZGRAVERCORE_LIBRARY
 
 SOURCES += ezgraver.cpp \
-    ezgraver_v1.cpp \
-    ezgraver_v2.cpp \
-    factory.cpp \
-    ezgraver_v3.cpp
+    ezgraver_decaker.cpp \
+    ezgraver_nejev1.cpp \
+    ezgraver_nejev2.cpp \
+    ezgraver_nejev3.cpp \
+    factory.cpp
 
 HEADERS += ezgraver.h\
-        ezgravercore_global.h \
-    ezgraver_v1.h \
-    ezgraver_v2.h \
-    specifications.h \
+    ezgravercore_global.h \
+    ezgraver_decaker.h \
+    ezgraver_nejev1.h \
+    ezgraver_nejev2.h \
+    ezgraver_nejev3.h \
     factory.h \
-    ezgraver_v3.h
+    specifications.h
 
 unix {
     target.path = /usr/lib

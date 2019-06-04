@@ -1,5 +1,5 @@
-#ifndef EZGRAVERV1_H
-#define EZGRAVERV1_H
+#ifndef EZGRAVERNEJEV2_H
+#define EZGRAVERNEJEV2_H
 
 #include <QSerialPort>
 
@@ -9,7 +9,7 @@
 
 namespace Ez {
 
-struct EzGraverV1 : EzGraver {
+struct EzGraverNejeV2 : EzGraver {
     using EzGraver::EzGraver;
 
     /*! Moves the engraver up. */
@@ -27,4 +27,4 @@ struct EzGraverV1 : EzGraver {
 
 }
 
-#endif // EZGRAVERV1_H
+#endif // EZGRAVERNEJEV2_H

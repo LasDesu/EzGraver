@@ -4,7 +4,7 @@
 |[![Travis Build Status](https://travis-ci.org/camrein/EzGraver.svg?branch=master)](https://travis-ci.org/camrein/EzGraver)|[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/g98wrysmliq4t8d9/branch/master?svg=true)](https://ci.appveyor.com/project/camrein/ezgraver)|[![Latest GitHub Release](https://img.shields.io/github/release/camrein/EzGraver.svg)](https://github.com/camrein/EzGraver/releases/latest)|[![Total Downloads](https://img.shields.io/github/downloads/camrein/EzGraver/total.svg)](https://github.com/camrein/EzGraver/releases/latest)|
 
 # About
-EzGraver is an open source software allowing users to use with laser engravers by NEJE. It supports Linux, OSX, and Windows. It provides both a command-line interface and a graphical user interface. The latest release is available on the [releases page](https://github.com/camrein/EzGraver/releases/latest).
+EzGraver is an open source software allowing users to use with laser engravers by NEJE or DECAKER. It supports Linux, OSX, and Windows. It provides both a command-line interface and a graphical user interface. The latest release is available on the [releases page](https://github.com/camrein/EzGraver/releases/latest).
 
 ![EzGraver Screenshot](screenshot.png)
 
@@ -94,3 +94,4 @@ Many thanks to:
 * [Frederik Andersson](https://github.com/Na1w) for providing the control codes for protocol v1.
 * [AlexNk](https://github.com/AlexNk) for providing the control codes for protocol v2.
 * [maturz](https://github.com/maturz) and [Richard Kircheis](https://github.com/tinyisland) for providing data and help to support the protocol v3.
+* [nabilbendafi](https://github.com/nabilbendafi) for bringing support of Decaker engraver to EzGraver

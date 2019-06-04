@@ -11,7 +11,8 @@
 
 namespace Ez {
 /*!
- * Allows accessing a NEJE engraver using the serial port it was instantiated with.
+ * Allows accessing a NEJE/DECAKER engraver using the serial port it
+ * was instantiated with.
  * The connection is closed as soon as the object is destroyed.
  */
 struct EZGRAVERCORESHARED_EXPORT EzGraver {

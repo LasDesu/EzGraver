@@ -9,7 +9,7 @@
 
 namespace Ez {
 
-struct EzGraverV3 : EzGraver {
+struct EzGraverDecaker : EzGraver {
     using EzGraver::EzGraver;
 
     /*!
