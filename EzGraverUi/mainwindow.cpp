@@ -19,7 +19,6 @@
 #include "factory.h"
 #include "specifications.h"
 
-static QString const DeviceSetting{"device"};
 static QString const DirectorySetting{"directory"};
 static QString const ProtocolSetting{"protocol"};
 
@@ -127,23 +126,14 @@ void MainWindow::_initConversionFlags() {
 }
 
 void MainWindow::_initProtocols() {
-    auto devices = Ez::devices();
     auto protocols = Ez::protocols();
-    for(auto device : devices) {
-        for(auto protocol : protocols) {
-            _ui->protocolVersion->addItem(QString{"v%1 - "}.arg(protocol).append(device),
-			    QVariant::fromValue(qMakePair(protocol, device)));
-            if (device == "decaker") {
-                // Only one protocol right now for Decaker familly
-                break;
-	    }
-        }
-    }
+	for(auto protocol : protocols) {
+		_ui->protocolVersion->addItem(protocol);
+	}
 
-    auto selectedDevice = _settings.value(DeviceSetting, "neje").toString();
-    auto selectedProtocol = _settings.value(ProtocolSetting, 1).toInt();
+	auto selectedProtocol = _settings.value(ProtocolSetting, "NEJE v1").toString();
     if(protocols.contains(selectedProtocol)) {
-        _ui->protocolVersion->setCurrentText(QString{"v%1 - "}.arg(selectedProtocol).arg(selectedDevice));
+		_ui->protocolVersion->setCurrentText(selectedProtocol);
     }
 }
 
@@ -212,19 +202,15 @@ void MainWindow::updateEngraveProgress() {
 }
 
 void MainWindow::on_connect_clicked() {
-    try {
-        auto protocolVersion = _ui->protocolVersion->currentData().value<QPair<int,QString>>();
-        auto protocol = protocolVersion.first;
-        auto device = protocolVersion.second;
-        _printVerbose(QString{"Connecting to port %1 with protocol version %2 - %3"}.
+	try {
+		auto protocol = _ui->protocolVersion->currentData().value<QString>();
+		_printVerbose(QString{"Connecting to port %1 with %2 protocol"}.
 			arg(_ui->ports->currentText()).
-			arg(protocol).
-			arg(device));
-        _ezGraver = Ez::create(_ui->ports->currentText(), device, protocol);
+			arg(protocol));
+		_ezGraver = Ez::create(_ui->ports->currentText(), protocol);
         _printVerbose("connection established successfully");
         _setConnected(true);
 
-        _settings.setValue(DeviceSetting, device);
         _settings.setValue(ProtocolSetting, protocol);
 
         connect(_ezGraver->serialPort().get(), &QSerialPort::bytesWritten, this, &MainWindow::bytesWritten);

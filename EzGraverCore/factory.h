@@ -23,21 +23,14 @@ namespace Ez {
  * \throws std::runtime_error Thrown if no connection to the specified port could be established.
  * \throws std::invalid_argument Thrown if the provided protocol code is unknown.
  */
-EZGRAVERCORESHARED_EXPORT std::shared_ptr<EzGraver> create(QString const& portName, QString const& device = "neje", int protocol = 1);
-
-/*!
- * Gets the available devices.
- *
- * \return The available devices.
- */
-EZGRAVERCORESHARED_EXPORT QList<QString> devices();
+EZGRAVERCORESHARED_EXPORT std::shared_ptr<EzGraver> create(QString const& portName, QString const& protocol = "NEJE v1");
 
 /*!
  * Gets the available protocols.
  *
  * \return The available protocols.
  */
-EZGRAVERCORESHARED_EXPORT QList<int> protocols();
+EZGRAVERCORESHARED_EXPORT QList<QString> protocols();
 
 /*!
  * Gets a list of all available ports.
