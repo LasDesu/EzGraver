@@ -26,17 +26,31 @@ namespace Ez {
 #define CMD_HOME			0x17
 #define CMD_PAUSE			0x18
 #define CMD_RESUME			0x19
-#define CMD_VECTOR			0x1D
+#define CMD_VECTOR_LINES	0x1D
 #define CMD_PREVIEW_START	0x20
 #define CMD_PREVIEW_STOP	0x21
 #define CMD_UPLOAD_LINE		0x22
 #define CMD_UPLOAD_START	0x23
 #define CMD_OFFLINE_ENGRAVE	0x24 // not sure
-#define CMD_STOP			0x27
+#define CMD_OFFLINE_STOP	0x27
 #define CMD_SETUP			0x28
 #define CMD_FD				0xFD // ? not called in original app - yi_dong_z(1)
 #define CMD_FE				0xFE // ? not called in original app - yi_dong_z(0)
 #define CMD_FF				0xFF
+
+struct cmd_setup
+{
+	uint8_t stdby_power;
+	uint16_t line_delay;
+	uint16_t TIM;	// max power? TIM_chong_zhuang_zhi
+	uint8_t BU;	// microsteps?
+	uint8_t x_compens;
+	uint8_t y_compens;
+	uint16_t SS;	// steps per ?revolution?
+	uint16_t MM1;	// lower speed limit???
+	uint16_t KUAI;	// speed limit???
+	uint16_t accuracy;
+};
 
 struct cmd_move
 {
