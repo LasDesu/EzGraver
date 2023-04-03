@@ -8,13 +8,14 @@
 
 namespace Ez {
 
-void EzGraverNejeV3::start(unsigned char const& burnTime) {
+void EzGraverNejeV3::start(unsigned char burnTime, unsigned char power) {
+	Q_UNUSED(power);
     _setBurnTime(burnTime);
     qDebug() << "starting engrave process";
     _transmit(QByteArray::fromRawData("\xFF\x01\x01\x00", 4));
 }
 
-void EzGraverNejeV3::_setBurnTime(unsigned char const& burnTime) {
+void EzGraverNejeV3::_setBurnTime(unsigned char burnTime) {
     if(burnTime < 0x01 || burnTime > 0xF0) {
         throw new std::out_of_range("burntime out of range");
     }
@@ -87,7 +88,7 @@ int EzGraverNejeV3::uploadImage(QImage const& originalImage) {
     image.save(&buffer, "BMP");
 
     // protocol v3 neither needs the BMP header nor the invertion of the pixels.
-    return EzGraver::uploadImage(bytes.mid(62));
+	return EzGraverNejeV1::uploadImage(bytes.mid(62));
 }
 
 }

@@ -5,12 +5,12 @@
 
 #include <memory>
 
-#include "ezgraver.h"
+#include "ezgraver_nejev1.h"
 
 namespace Ez {
 
-struct EzGraverNejeV2 : EzGraver {
-    using EzGraver::EzGraver;
+struct EzGraverNejeV2 : EzGraverNejeV1 {
+	using EzGraverNejeV1::EzGraverNejeV1;
 
     /*! Moves the engraver up. */
     void up() override;

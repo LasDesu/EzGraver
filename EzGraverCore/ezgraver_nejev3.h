@@ -5,19 +5,19 @@
 
 #include <memory>
 
-#include "ezgraver.h"
+#include "ezgraver_nejev1.h"
 
 namespace Ez {
 
-struct EzGraverNejeV3 : EzGraver {
-    using EzGraver::EzGraver;
+struct EzGraverNejeV3 : EzGraverNejeV1 {
+	using EzGraverNejeV1::EzGraverNejeV1;
 
     /*!
      * Starts the engraving process with the given \a burnTime.
      *
      * \param burnTime The burn time to use in milliseconds.
      */
-    void start(unsigned char const& burnTime) override;
+	void start(unsigned char burnTime, unsigned char power) override;
 
     /*!
      * Pauses the engraving process at the given location. The process
@@ -71,7 +71,7 @@ struct EzGraverNejeV3 : EzGraver {
     int uploadImage(QImage const& image) override;
 
 private:
-    void _setBurnTime(unsigned char const& burnTime);
+	void _setBurnTime(unsigned char burnTime);
 };
 
 }
